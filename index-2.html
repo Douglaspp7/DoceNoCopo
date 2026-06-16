@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DulceVaso — Transforme seus doces no copo em um negócio</title>
+<meta name="description" content="O app que transforma seus doces no copo em um negócio: receitas lucrativas, preço certo e seu plano de vendas passo a passo. Sem forno, sem experiência.">
+<meta property="og:title" content="DulceVaso — Seu negócio de doces no copo começa hoje">
+<meta property="og:description" content="Não é mais um PDF de receitas. É um app com calculadora de preços, receitas lucrativas e plano de vendas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://douglaspp7.github.io/doce-no-copo/">
+<meta property="og:image" content="https://douglaspp7.github.io/doce-no-copo/hero-mujer.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://douglaspp7.github.io/doce-no-copo/">
+<link rel="preload" as="image" href="hero-mujer.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<!-- ============================================ -->
+<!-- CONFIGURACIÓN: edita solo estas 2 líneas     -->
+<!-- ============================================ -->
+<script>
+  const CHECKOUT_URL = "https://pay.hotmart.com/I106284787G?checkoutMode=10";
+  const META_PIXEL_ID = "1329933185770980";
+</script>
+
+<!-- UTMfy: captura UTMs para rastreamento de tráfego -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+<style>
+  :root{
+    --crema:#FFF6EC;
+    --frambuesa:#8C2F4B;
+    --frambuesa-osc:#6E2139;
+    --caramelo:#D98E32;
+    --chocolate:#3B2218;
+    --verde:#1FA45B;
+    --blanco:#FFFFFF;
+    --sombra:0 10px 30px rgba(59,34,24,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:'Nunito Sans',system-ui,sans-serif;
+    background:var(--crema);
+    color:var(--chocolate);
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Lilita One',cursive;font-weight:400;line-height:1.1;letter-spacing:.3px}
+  h2{font-size:clamp(26px,6vw,38px);margin-bottom:14px;text-align:center}
+  h2 + p{text-align:center}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
+  section{padding:54px 0}
+  .eyebrow{
+    display:block;width:fit-content;margin:0 auto 14px;text-align:center;
+    background:var(--caramelo);color:var(--blanco);
+    font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;
+  }
+  .cta-btn{
+    display:block;width:100%;max-width:420px;margin:0 auto;
+    background:var(--verde);color:var(--blanco);text-decoration:none;text-align:center;
+    font-family:'Lilita One',cursive;font-size:21px;letter-spacing:.5px;
+    padding:18px 24px;border-radius:16px;border:none;cursor:pointer;
+    box-shadow:0 6px 0 #157A43, var(--sombra);
+    transition:transform .12s ease;
+  }
+  .cta-btn:active{transform:translateY(4px);box-shadow:0 2px 0 #157A43}
+  .cta-btn:focus-visible{outline:3px solid var(--chocolate);outline-offset:3px}
+  .cta-sub{text-align:center;font-size:13.5px;margin-top:10px;opacity:.75;font-weight:600}
+
+  /* Preço local em destaque abaixo de cada botão (USD como referência) */
+  .price-info{
+    text-align:center;
+    max-width:420px;
+    margin:10px auto 0;
+    color:var(--chocolate);
+    letter-spacing:.2px;
+  }
+  .price-local{
+    display:block;
+    font-size:20px;
+    font-weight:800;
+    color:var(--frambuesa);
+    line-height:1.25;
+  }
+  .price-local:empty{display:none}
+  .price-usd{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    opacity:.6;
+    margin-top:2px;
+  }
+
+  /* Aviso de seguridad / documento bajo cada botón */
+  .pago-seguro{
+    text-align:center;
+    max-width:420px;
+    margin:8px auto 0;
+    font-size:12.5px;
+    font-weight:600;
+    line-height:1.45;
+    opacity:.72;
+  }
+  .pago-seguro b{color:var(--verde)}
+  .hero .pago-seguro,
+  .precio .pago-seguro{color:rgba(255,255,255,.85);opacity:.9}
+  .hero .pago-seguro b,
+  .precio .pago-seguro b{color:#FFD9A0}
+
+  /* Caja explicativa del documento (RFC/RUT/DNI) en la sección de precio */
+  .aviso-doc{
+    max-width:480px;margin:22px auto 0;
+    background:rgba(255,255,255,.12);
+    border:1.5px solid rgba(255,255,255,.35);
+    border-radius:16px;padding:18px 20px;text-align:left;
+  }
+  .aviso-doc .titulo{
+    display:flex;align-items:center;gap:8px;
+    font-weight:800;font-size:15px;margin-bottom:8px;color:#fff;
+  }
+  .aviso-doc p{font-size:13.5px;line-height:1.5;opacity:.92;color:#fff}
+  .aviso-doc b{color:#FFD9A0}
+
+  /* ---------- HERO ---------- */
+  .hero{background:linear-gradient(180deg,var(--frambuesa) 0%,var(--frambuesa-osc) 100%);color:var(--blanco);padding:46px 0 60px;overflow:hidden}
+  .hero .eyebrow{background:rgba(255,255,255,.16);backdrop-filter:blur(2px)}
+  .hero h1{font-size:clamp(32px,8.5vw,52px);margin-bottom:16px}
+  .hero h1 em{font-style:normal;color:#FFD9A0}
+  .hero p.sub{font-size:18px;opacity:.94;margin-bottom:30px;font-weight:600}
+  .hero-precio{text-align:center;font-size:17px;font-weight:800;margin-bottom:14px;color:#FFD9A0}
+  .hero-precio .antes{font-weight:700;opacity:.7;text-decoration:line-through;color:var(--blanco)}
+  .hero .price-info{color:rgba(255,255,255,.9)}
+  .hero .price-local{color:#FFD9A0}
+
+  /* el hero: foto real con etiqueta de ganancia */
+  .vaso-zona{display:flex;justify-content:center;margin:34px 0 30px}
+  .vaso-grupo{position:relative;width:100%;max-width:420px}
+  .hero-foto{
+    width:100%;display:block;border-radius:22px;
+    box-shadow:0 14px 34px rgba(0,0,0,.3);
+    border:5px solid rgba(255,255,255,.85);
+  }
+  .tag{
+    position:absolute;font-family:'Nunito Sans',sans-serif;font-weight:800;font-size:13px;
+    background:var(--blanco);color:var(--chocolate);padding:5px 11px;border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);white-space:nowrap;
+  }
+  .tag-ganancia{
+    left:50%;transform:translateX(-50%) rotate(-3deg);bottom:-18px;
+    background:var(--verde);color:var(--blanco);font-size:15px;padding:7px 16px;
+  }
+  .tag b{font-weight:800}
+
+  /* ---------- GALERÍA DE RECETAS ---------- */
+  .galeria{background:var(--blanco);padding:46px 0}
+  .galeria-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+  .galeria-grid figure{margin:0}
+  .galeria-grid img{
+    width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;
+    box-shadow:var(--sombra);display:block;
+  }
+  .galeria-grid figcaption{
+    text-align:center;font-size:13px;font-weight:800;margin-top:6px;color:var(--frambuesa);
+  }
+  .foto-ancha{
+    width:100%;border-radius:18px;box-shadow:var(--sombra);display:block;margin:22px 0 6px;
+  }
+  .foto-pie{font-size:13.5px;text-align:center;opacity:.75;font-weight:600;margin-bottom:8px}
+
+  /* ---------- VIDEO OVERLAY ---------- */
+  .video-wrapper{position:relative;cursor:pointer}
+  .video-wrapper .play-overlay{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:rgba(26,15,10,.45);border-radius:22px;
+    transition:opacity .3s ease, visibility .3s ease;
+    z-index:2;
+  }
+  .video-wrapper .play-overlay svg{filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))}
+  .video-wrapper.playing .play-overlay{opacity:0;visibility:hidden;pointer-events:none}
+
+  /* ---------- ANTES vs DESPUÉS ---------- */
+  .transformacion{background:var(--blanco);padding:46px 0}
+  .transf-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  @media(max-width:540px){.transf-grid{grid-template-columns:1fr}}
+  .transf-col{border-radius:18px;padding:22px;font-size:15.5px}
+  .transf-col h3{font-size:20px;margin-bottom:12px}
+  .transf-col.antes{background:#FFF0F0;border:2px solid #F5C6C6}
+  .transf-col.antes h3{color:#C0392B}
+  .transf-col.despues{background:#F0FFF5;border:2px solid #A8E6C3}
+  .transf-col.despues h3{color:var(--verde)}
+  .transf-col li{margin-bottom:8px;list-style:none;padding-left:24px;position:relative}
+  .transf-col.antes li::before{content:"✗";position:absolute;left:0;color:#C0392B;font-weight:800}
+  .transf-col.despues li::before{content:"✓";position:absolute;left:0;color:var(--verde);font-weight:800}
+
+  /* ---------- GARANTIA DESTAQUE ---------- */
+  .garantia-card{
+    max-width:480px;margin:28px auto 0;background:rgba(255,255,255,.12);
+    border:2px solid rgba(255,255,255,.35);border-radius:20px;padding:24px;
+    text-align:center;
+  }
+  .garantia-card .escudo{font-size:48px;margin-bottom:10px}
+  .garantia-card b{display:block;font-size:19px;margin-bottom:6px}
+  .garantia-card p{font-size:15px;opacity:.9;line-height:1.5}
+
+  /* ---------- AVATAR ILUSTRADO ---------- */
+  .avatar-circle{
+    width:48px;height:48px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;font-weight:800;color:#fff;
+  }
+
+  /* ---------- MOCKUP DEL APP ---------- */
+  .app-demo{background:var(--chocolate);padding:50px 0 60px;color:var(--crema)}
+  .app-demo h2{color:var(--blanco)}
+  .app-demo .eyebrow{background:var(--caramelo)}
+  .app-foto{display:block;width:100%;max-width:380px;margin:28px auto 0;border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+  .app-demo .pie-demo{text-align:center;font-size:13.5px;opacity:.8;font-weight:600;margin-top:16px}
+
+  /* ---------- BARRA "NO ES UN PDF" ---------- */
+  .no-pdf{background:var(--chocolate);color:var(--crema);padding:30px 0;text-align:center}
+  .no-pdf .display{font-size:clamp(22px,5.5vw,30px)}
+  .no-pdf .tachado{text-decoration:line-through;opacity:.55}
+  .no-pdf .resalta{color:#FFD9A0}
+
+  /* ---------- PASOS (receta del negocio) ---------- */
+  .pasos .paso{
+    display:flex;gap:16px;align-items:flex-start;background:var(--blanco);
+    border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:var(--sombra);
+  }
+  .paso .num{
+    flex-shrink:0;width:46px;height:46px;border-radius:50%;
+    background:var(--frambuesa);color:var(--blanco);
+    font-family:'Lilita One',cursive;font-size:22px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .paso h3{font-size:19px;margin-bottom:4px}
+  .paso p{font-size:15.5px;opacity:.85}
+
+  /* ---------- MÓDULOS / QUÉ RECIBES ---------- */
+  .modulos{background:var(--blanco)}
+  .mod-card{
+    border:2px solid #F0E2D0;border-radius:18px;padding:20px;margin-bottom:14px;
+    background:var(--crema);
+  }
+  .mod-card .mod-icono{font-size:28px;margin-bottom:8px}
+  .mod-card h3{font-size:19px;margin-bottom:6px;color:var(--frambuesa)}
+  .mod-card p{font-size:15.5px}
+  .mod-card .valor{display:inline-block;margin-top:10px;font-weight:800;font-size:14px;color:var(--caramelo)}
+  .bono-label{
+    display:inline-block;background:var(--caramelo);color:var(--blanco);
+    font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+    padding:4px 10px;border-radius:999px;margin-bottom:8px;
+  }
+
+  /* ---------- DIFERENCIALES (solo app) ---------- */
+  .dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+  @media(max-width:540px){.dif-grid{grid-template-columns:1fr}}
+  .dif-card{
+    background:var(--blanco);border:2px solid #F0E2D0;border-radius:18px;
+    padding:18px;box-shadow:var(--sombra);
+  }
+  .dif-card .dif-icono{font-size:26px;margin-bottom:8px}
+  .dif-card h3{font-size:17px;margin-bottom:6px;color:var(--frambuesa)}
+  .dif-card p{font-size:14.5px;line-height:1.5}
+  .dif-tag{
+    display:inline-block;margin-top:10px;background:#F0FFF5;color:var(--verde);
+    border:1.5px solid #A8E6C3;font-size:12px;font-weight:800;
+    padding:3px 10px;border-radius:999px;
+  }
+
+  /* ---------- PARA QUIÉN ---------- */
+  .quien ul{list-style:none}
+  .quien li{
+    background:var(--blanco);border-radius:14px;padding:14px 16px;margin-bottom:10px;
+    box-shadow:var(--sombra);font-weight:600;font-size:16px;
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .quien li::before{content:"✓";color:var(--verde);font-weight:800;font-size:18px}
+
+  /* ---------- PRECIO ---------- */
+  .precio{background:linear-gradient(180deg,var(--frambuesa) 0%,var(--frambuesa-osc) 100%);color:var(--blanco);text-align:center}
+  .precio .anclado{font-size:19px;opacity:.7;text-decoration:line-through;font-weight:700}
+  .precio .grande{font-family:'Lilita One',cursive;font-size:clamp(54px,15vw,76px);line-height:1;margin:8px 0 4px;color:#FFD9A0}
+  .precio .unico{font-weight:800;letter-spacing:1px;text-transform:uppercase;font-size:14px;opacity:.9;margin-bottom:26px}
+  .precio .price-info{color:rgba(255,255,255,.9)}
+  .precio .price-local{color:#FFD9A0}
+  .garantia{
+    max-width:420px;margin:28px auto 0;background:rgba(255,255,255,.1);
+    border:1.5px dashed rgba(255,255,255,.45);border-radius:16px;padding:18px;font-size:15px;
+  }
+  .garantia b{display:block;font-size:17px;margin-bottom:4px}
+
+  /* ---------- FAQ ---------- */
+  details{background:var(--blanco);border-radius:14px;margin-bottom:10px;box-shadow:var(--sombra)}
+  summary{padding:16px 18px;font-weight:800;cursor:pointer;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+  summary::after{content:"+";font-family:'Lilita One',cursive;color:var(--frambuesa);font-size:20px}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 18px 16px;font-size:15.5px;opacity:.9}
+
+  /* ---------- BARRA FIJA ---------- */
+  .barra-fija{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:var(--blanco);box-shadow:0 -6px 24px rgba(59,34,24,.18);
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    display:flex;align-items:center;gap:12px;
+    transform:translateY(110%);transition:transform .3s ease;
+  }
+  .barra-fija.visible{transform:translateY(0)}
+  .barra-fija .precio-mini{line-height:1.1}
+  .barra-fija .precio-mini .tach{font-size:11px;text-decoration:line-through;opacity:.5;display:block}
+  .barra-fija .precio-mini .ahora{font-family:'Lilita One',cursive;font-size:16px;color:var(--chocolate);opacity:.7}
+  .barra-fija .precio-mini .local-mini{display:block;font-family:'Lilita One',cursive;font-size:19px;font-weight:400;color:var(--frambuesa);margin-top:1px;}
+  .barra-fija .cta-btn{font-size:17px;padding:13px 18px;margin:0;flex:1;box-shadow:0 4px 0 #157A43}
+
+  footer{padding:36px 0 110px;text-align:center;font-size:13px;opacity:.65}
+  footer .wrap p{margin-bottom:6px}
+
+  /* ============================================================ */
+  /* OPTIMIZACIÓN DESKTOP (no afecta el móvil)                     */
+  /* ============================================================ */
+  @media (min-width: 880px){
+    .wrap{max-width:920px}
+    section{padding:70px 0}
+    h2{font-size:clamp(30px,3vw,40px)}
+
+    /* Líneas de texto cómodas (no demasiado largas) */
+    section > .wrap > p{max-width:760px; margin-left:auto; margin-right:auto}
+
+    /* ---- HERO en 2 columnas (texto + foto), sin tocar el orden móvil ---- */
+    .hero{padding:64px 0 72px}
+    .hero .wrap{
+      display:grid; grid-template-columns:1fr 1fr;
+      column-gap:52px; align-items:center; max-width:1040px;
+    }
+    .hero .wrap > *{grid-column:1; max-width:540px}
+    .hero .wrap > p.sub{max-width:540px}
+    .hero .vaso-zona{grid-column:2; grid-row:1 / 50; align-self:center; margin:0}
+    .hero .vaso-grupo{max-width:470px; margin-left:auto}
+    .hero h1{font-size:clamp(38px,3.6vw,54px)}
+    .hero .cta-btn{margin-left:auto; margin-right:auto}
+    .hero .price-info{margin-left:0; margin-right:0}
+
+    /* ---- MÓDULOS en 2 columnas ---- */
+    .modulos .wrap{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start}
+    .modulos .wrap > .eyebrow,
+    .modulos .wrap > h2,
+    .modulos .wrap > p,
+    .modulos .wrap > .cta-btn,
+    .modulos .wrap > .price-info,
+    .modulos .wrap > .pago-seguro{grid-column:1 / -1; justify-self:center}
+    .mod-card{margin-bottom:0}
+
+    /* Asegura todos los botones centrados en desktop */
+    .cta-btn{margin-left:auto; margin-right:auto; justify-self:center}
+
+    /* ---- PASOS en 2 columnas ---- */
+    .pasos .wrap{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start}
+    .pasos .wrap > .eyebrow,
+    .pasos .wrap > h2,
+    .pasos .wrap > .foto-ancha,
+    .pasos .wrap > .foto-pie{grid-column:1 / -1}
+    .paso{margin-bottom:0}
+
+    /* ---- PARA QUIÉN en 2 columnas ---- */
+    .quien ul{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    .quien li{margin-bottom:0}
+
+    /* ---- DIFERENCIALES en 3 columnas ---- */
+    .dif-grid{grid-template-columns:repeat(3,1fr)}
+
+    /* ---- Galería: imágenes un poco más generosas ---- */
+    .galeria-grid{gap:14px}
+
+    /* ---- Barra fija: centrada, botón sin estirarse ---- */
+    .barra-fija{justify-content:center; gap:24px}
+    .barra-fija .cta-btn{flex:0 0 auto; min-width:320px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">App + receitas + plano de vendas</span>
+    <h1>Seus doces no copo podem <em>pagar suas contas.</em></h1>
+    <p class="sub">O DulceVaso é o app que te diz o que preparar, quanto cobrar e como vender pelo WhatsApp — e ainda registra suas vendas, calcula seu lucro real e mostra quanto você já fez no mês. Seu negócio inteiro no celular. Sem forno. Sem experiência. Sem chutar preço.</p>
+
+    <div class="vaso-zona">
+      <div class="vaso-grupo">
+        <img class="hero-foto" src="hero-mujer.jpg"
+             alt="Mulher brasileira sorrindo na cozinha mostrando seus doces no copo e o celular com o app DulceVaso"
+             onerror="this.closest('.vaso-zona').style.display='none'">
+        <span class="tag tag-ganancia"><b>R$ 5</b> de lucro × 30 copinhos = <b>R$ 150</b> 💰</span>
+      </div>
+    </div>
+
+    <p class="hero-precio"><span class="antes">De R$ 197</span> · <b>Hoje só R$ 27,90</b></p>
+    <a class="cta-btn js-checkout" href="#precio">Comprar agora 🍓</a>
+    <p class="price-info"><span class="price-local"></span><span class="price-usd">R$ 27,90</span></p>
+    <p class="pago-seguro">🔒 Pagamento 100% seguro via Hotmart · PIX, boleto ou cartão</p>
+    <p class="cta-sub">Pagamento único · Acesso imediato · 🛡️ Garantia de 7 dias, 100% de reembolso</p>
+  </div>
+</header>
+
+<!-- ============ BARRA PROVA SOCIAL ============ -->
+<div style="background:var(--chocolate);color:var(--crema);padding:14px 0;text-align:center;border-bottom:3px solid var(--caramelo);">
+  <div class="wrap">
+    <p style="font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;">
+      <span style="color:#FFD9A0;">🚀 Recém-lançado</span>
+      <span>Feito para empreendedoras do Brasil</span>
+      <span style="background:var(--caramelo);color:#fff;padding:3px 10px;border-radius:99px;font-size:12px;">🇧🇷</span>
+    </p>
+  </div>
+</div>
+
+<!-- ============ NO ES UN PDF ============ -->
+<div class="no-pdf">
+  <div class="wrap">
+    <p class="display">Isto <span class="tachado">não é mais um PDF de receitas</span>.<br>É <span class="resalta">um app que trabalha com você</span>.</p>
+  </div>
+</div>
+
+<!-- ============ MOCKUP DEL APP ============ -->
+<section class="app-demo">
+  <div class="wrap">
+    <span class="eyebrow">Veja o app por dentro</span>
+    <h2>Seu negócio na palma da mão</h2>
+    <p style="text-align:center;">Calcule seu preço, siga seu plano e copie suas mensagens de venda. Tudo em um só lugar.</p>
+
+    <img class="app-foto" src="app-en-mano.jpg"
+         alt="Mão de mulher mostrando o app DulceVaso com a calculadora de preços e o lucro na tela"
+         onerror="this.style.display='none'">
+    <p class="pie-demo">Funciona em qualquer celular, direto pelo navegador. Sem baixar nada da loja.</p>
+  </div>
+</section>
+
+<!-- ============ VIDEO DEL APP ============ -->
+<section style="background:var(--crema);padding:46px 0;">
+  <div class="wrap">
+    <span class="eyebrow">Veja em ação</span>
+    <h2 style="margin-bottom:8px;">60 segundos e você já sabe como funciona</h2>
+    <p style="margin-bottom:24px;">Veja como registrar uma venda, calcular seu preço e copiar sua mensagem de WhatsApp — tudo pelo celular.</p>
+
+    <!-- Vídeo nativo con overlay de play -->
+    <div class="video-wrapper" id="videoWrapper" style="max-width:315px;margin:0 auto;border-radius:22px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.25);">
+      <video
+        id="demoVideo"
+        src="demo-app.mp4"
+        poster="app-en-mano.jpg"
+        controls
+        playsinline
+        preload="metadata"
+        style="width:100%;display:block;background:#1a0f0a;">
+      </video>
+      <div class="play-overlay" id="playOverlay">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+          <circle cx="36" cy="36" r="36" fill="rgba(255,255,255,0.95)"/>
+          <polygon points="28,20 28,52 54,36" fill="#8C2F4B"/>
+        </svg>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;font-weight:600;color:var(--chocolate);opacity:.7;margin-top:12px;">
+      📱 Toque no play — veja o app em 60 segundos
+    </p>
+  </div>
+</section>
+
+<!-- ============ ANTES vs DESPUÉS ============ -->
+<section class="transformacion">
+  <div class="wrap">
+    <span class="eyebrow">A transformação</span>
+    <h2>Como sua vida muda com o DulceVaso?</h2>
+    <div class="transf-grid">
+      <div class="transf-col antes">
+        <h3>❌ Sem o DulceVaso</h3>
+        <ul>
+          <li>Cobra de menos e dá seu trabalho de graça</li>
+          <li>Repete as mesmas receitas sem saber se dão lucro</li>
+          <li>Não sabe o que dizer para vender no WhatsApp</li>
+          <li>Quer começar mas não sabe por onde</li>
+          <li>Sente que "não é pra você" porque não tem forno nem experiência</li>
+        </ul>
+      </div>
+      <div class="transf-col despues">
+        <h3>✅ Com o DulceVaso</h3>
+        <ul>
+          <li>Sabe exatamente quanto cobrar e quanto ganha</li>
+          <li>40 receitas lucrativas testadas, sem forno</li>
+          <li>Mensajes listos para copiar y enviar</li>
+          <li>Um plano de 7 passos que diz o que fazer cada dia</li>
+          <li>Seu primeiro pedido em menos de 2 semanas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERÍA: LO QUE VAS A VENDER ============ -->
+<section class="galeria">
+  <div class="wrap">
+    <span class="eyebrow">Prévia</span>
+    <h2>O que você vai preparar (e vender)</h2>
+    <p>40 doces no copo com cara de confeitaria, feitos na sua cozinha, sem forno.</p>
+    <div class="galeria-grid">
+      <figure>
+        <img src="postre-fresa.jpg" alt="Morango com creme no copo" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <figcaption>Morango com creme</figcaption>
+      </figure>
+      <figure>
+        <img src="postre-chocolate.jpg" alt="Choco-biscoito no copo" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <figcaption>Choco-biscoito</figcaption>
+      </figure>
+      <figure>
+        <img src="mazamorra-morada.jpg" alt="Mousse de uva no copo" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <figcaption>Mousse de uva</figcaption>
+      </figure>
+      <figure>
+        <img src="fresas-con-chocolate.jpg" alt="Morango com chocolate no copo" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <figcaption>Morango com chocolate</figcaption>
+      </figure>
+      <figure>
+        <img src="durazno-con-crema.jpg" alt="Pêssego com creme no copo" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <figcaption>Pêssego com creme</figcaption>
+      </figure>
+      <figure>
+        <img src="choco-flan-en-vaso.jpg" alt="Pavê de chocolate no copo" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <figcaption>Pavê de chocolate</figcaption>
+      </figure>
+    </div>
+    <p style="text-align:center;font-size:14px;font-weight:800;margin-top:16px;color:var(--frambuesa);">
+      + 34 receitas esperando por você dentro do app 🍓
+    </p>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section class="pasos">
+  <div class="wrap">
+    <span class="eyebrow">Como funciona</span>
+    <h2>Seu negócio, passo a passo, como uma receita</h2>
+
+    <div class="paso">
+      <div class="num">1</div>
+      <div><h3>Escolha uma receita lucrativa</h3>
+      <p>40 doces no copo testados, cada um com o custo real e a margem de lucro já calculados.</p></div>
+    </div>
+    <div class="paso">
+      <div class="num">2</div>
+      <div><h3>Calcule seu preço exato</h3>
+      <p>Coloque o que gastou com ingredientes e o app te diz quanto cobrar para lucrar de verdade. Chega de cobrar de menos.</p></div>
+    </div>
+    <div class="paso">
+      <div class="num">3</div>
+      <div><h3>Siga seu plano de vendas</h3>
+      <p>Um plano de 7 passos com missões simples: de preparar suas amostras até registrar sua primeira venda.</p></div>
+    </div>
+    <div class="paso">
+      <div class="num">4</div>
+      <div><h3>Venda pelo WhatsApp</h3>
+      <p>Mensagens prontas para copiar e enviar: oferecer, responder clientes e postar nos seus status.</p></div>
+    </div>
+
+    <img class="foto-ancha" src="encomiendas.jpg" loading="lazy"
+         alt="Pedidos de doces no copo embalados e prontos para entregar"
+         onerror="this.style.display='none';document.getElementById('pieEncomiendas').style.display='none'">
+    <p class="foto-pie" id="pieEncomiendas">Assim ficam seus pedidos prontos para entregar 📦</p>
+  </div>
+</section>
+
+<!-- ============ QUÉ RECIBES ============ -->
+<section class="modulos">
+  <div class="wrap">
+    <span class="eyebrow">O que você recebe hoje</span>
+    <h2>Tudo dentro de um só app</h2>
+
+    <div class="mod-card" style="text-align:center;">
+      <span class="bono-label" style="background:var(--frambuesa);">Módulo 1</span>
+      <h3>Receitas Lucrativas</h3>
+      <img src="mockup-recetas-rentables.png" alt="Mockup de catálogo de receitas em tablet" style="width:100%; max-width:240px; margin:10px auto; border-radius:12px; display:block;">
+      <p style="text-align:left;">40 doces no copo que se vendem sozinhos: ingredientes, preparo, rendimento, custo e preço sugerido.</p>
+      <span class="valor">Valor: R$ 47</span>
+    </div>
+    <div class="mod-card" style="text-align:center;">
+      <span class="bono-label" style="background:var(--frambuesa);">Módulo 2</span>
+      <h3>Calculadora de Preços</h3>
+      <img src="mockup-calculadora.png" alt="Mockup de calculadora de preços no celular" style="width:100%; max-width:240px; margin:10px auto; border-radius:12px; display:block;">
+      <p style="text-align:left;">A ferramenta que os outros vendem como PDF, aqui é de verdade: calcula seu preço e seu lucro em segundos.</p>
+      <span class="valor">Valor: R$ 37</span>
+    </div>
+    <div class="mod-card" style="text-align:center;">
+      <span class="bono-label" style="background:var(--frambuesa);">Módulo 3</span>
+      <h3>Meu Plano de Vendas</h3>
+      <img src="mockup-plan-ventas.png" alt="Mockup de planner de vendas" style="width:100%; max-width:240px; margin:10px auto; border-radius:12px; display:block;">
+      <p style="text-align:left;">7 missões com checklist para sair do "quero vender" até sua primeira venda registrada.</p>
+      <span class="valor">Valor: R$ 33</span>
+    </div>
+    <div class="mod-card" style="text-align:center;">
+      <span class="bono-label">Bono 1</span>
+      <h3>Kit de WhatsApp</h3>
+      <img src="mockup-kit-whatsapp.png" alt="Mockup de mensagens de WhatsApp no celular" style="width:100%; max-width:240px; margin:10px auto; border-radius:12px; display:block;">
+      <p style="text-align:left;">Mensagens promocionais, respostas a clientes e textos para seus status, prontos para copiar.</p>
+      <span class="valor">Valor: R$ 27</span>
+    </div>
+    <div class="mod-card" style="text-align:center;">
+      <span class="bono-label">Bono 2</span>
+      <h3>Guia de Embalagem e Apresentação</h3>
+      <img src="mockup-guia-empaque.png" alt="Mockup de copos de doce embalados" style="width:100%; max-width:240px; margin:10px auto; border-radius:12px; display:block;">
+      <p style="text-align:left;">Como deixar seus copinhos com cara de confeitaria usando materiais baratos.</p>
+      <span class="valor">Valor: R$ 20</span>
+    </div>
+    <div class="mod-card" style="text-align:center;">
+      <span class="bono-label" style="background:var(--verde);">Bono Especial</span>
+      <h3>25 Receitas de Doces Saudáveis</h3>
+      <img src="mockup-recetas.png" alt="Mockup do receituário 25 Receitas Saudáveis" style="width:100%; max-width:240px; margin:10px auto; border-radius:12px; display:block;">
+      <p style="text-align:left;">Receituário premium com 25 opções fit, sem açúcar e com poucas calorias. Perfeito para ampliar seu cardápio e atrair clientes que querem se cuidar.</p>
+      <span class="valor">Valor: R$ 33</span>
+    </div>
+
+    <p style="text-align:center;font-weight:800;font-size:18px;margin:22px 0 24px">
+      Valor total: <span style="text-decoration:line-through;opacity:.6">R$ 197</span><br>
+      <span style="color:var(--frambuesa);font-family:'Lilita One',cursive;font-size:26px">Hoje: só R$ 27,90</span>
+    </p>
+    <a class="cta-btn js-checkout" href="#precio">Comprar agora 🍓</a>
+    <p class="price-info"><span class="price-local"></span><span class="price-usd">R$ 27,90</span></p>
+    <p class="pago-seguro">🔒 Pagamento 100% seguro via Hotmart · PIX, boleto ou cartão</p>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIALES: solo en la app ============ -->
+<section style="background:var(--crema);padding:54px 0;">
+  <div class="wrap">
+    <span class="eyebrow">Só no app</span>
+    <h2>O que nenhum PDF ou curso consegue fazer</h2>
+    <p>O DulceVaso não é conteúdo para ler: é uma ferramenta que trabalha com você todo dia.</p>
+
+    <div class="dif-grid">
+      <div class="dif-card">
+        <div class="dif-icono">🔁</div>
+        <h3>Clientes que voltam</h3>
+        <p>O app te avisa quando oferecer de novo para cada cliente. Você não vende uma vez: cria vendas que se repetem.</p>
+        <span class="dif-tag">Mini CRM incluído</span>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icono">💵</div>
+        <h3>Seu lucro real</h3>
+        <p>Não é só quanto cobrar: o app subtrai seus gastos e mostra quanto sobra de verdade toda semana.</p>
+        <span class="dif-tag">Lucro líquido automático</span>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icono">🎯</div>
+        <h3>Metas que te motivam</h3>
+        <p>Defina sua meta do mês e veja seu progresso dia a dia. Sua sequência de vendas te impulsiona como um jogo.</p>
+        <span class="dif-tag">Painel com metas e sequência</span>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icono">📸</div>
+        <h3>Seu cardápio em 1 toque</h3>
+        <p>Transforme suas receitas em um catálogo com fotos, pronto para enviar no WhatsApp ou postar nos status. Sem designer.</p>
+        <span class="dif-tag">Catálogo exportável</span>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icono">🥤</div>
+        <h3>Preços por tamanho</h3>
+        <p>Copinhos pequeno, médio e grande: o app calcula o preço e a margem de cada um. Combos e upsells sem fazer conta.</p>
+        <span class="dif-tag">3 tamanhos calculados</span>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icono">🧮</div>
+        <h3>Custo profissional</h3>
+        <p>Inclui gás, luz, desperdício e seu tempo: o custo real que quase ninguém calcula. Você para de trabalhar de graça.</p>
+        <span class="dif-tag">Custos ocultos incluídos</span>
+      </div>
+    </div>
+
+    <a class="cta-btn js-checkout" href="#precio" style="margin-top:26px;">Comprar agora 🍓</a>
+    <p class="price-info"><span class="price-local"></span><span class="price-usd">R$ 27,90</span></p>
+    <p class="pago-seguro">🔒 Pagamento 100% seguro via Hotmart · PIX, boleto ou cartão</p>
+  </div>
+</section>
+
+<!-- ============ POR QUÉ CONFIAR ============ -->
+<section style="background:var(--blanco);padding:54px 0;">
+  <div class="wrap">
+    <span class="eyebrow">Compre sem medo</span>
+    <h2>Sua compra está protegida</h2>
+    <p style="text-align:center;">Produto novo, mas com todas as garantias. Se não for pra você, devolvemos seu dinheiro.</p>
+
+    <div class="dif-grid" style="margin-top:24px;">
+      <div class="dif-card">
+        <div class="dif-icono">🛡️</div>
+        <h3>Garantia de 7 dias</h3>
+        <p>Teste sem risco. Se não gostar, devolvemos 100% do seu dinheiro, sem perguntas.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icono">🔒</div>
+        <h3>Pagamento seguro via Hotmart</h3>
+        <p>Uma das plataformas de pagamento digital mais usadas do Brasil. Seus dados estão protegidos.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icono">⚡</div>
+        <h3>Acesso imediato</h3>
+        <p>Assim que o pagamento é confirmado, você recebe o acesso por e-mail. Em menos de 2 minutos já está dentro.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icono">♾️</div>
+        <h3>Pagamento único, seu para sempre</h3>
+        <p>Você paga R$ 27,90 uma única vez. Sem mensalidade, sem assinatura, sem letras miúdas.</p>
+      </div>
+    </div>
+
+    <!-- TESTIMONIOS REALES: pega aqui as resenhas reais das clientas. -->
+    <!-- Para exibir, REMOVA as duas linhas marcadoras abaixo          -->
+    <!-- (a que comeca com OCULTO-INICIO e a que termina OCULTO-FIM)   -->
+    <!-- e duplique um bloco .testi-card por depoimento.               -->
+    <!-- NAO inventar: usar somente opinioes reais com permissao.      -->
+    <div style="display:none" data-nota="OCULTO-INICIO-remover-esta-linha-e-a-de-baixo-para-exibir">
+      <div class="dif-grid" style="margin-top:28px;">
+        <div class="dif-card testi-card">
+          <div style="color:#F5A623;font-size:18px;">★★★★★</div>
+          <p>"AQUI O TEXTO DO DEPOIMENTO REAL DA SUA CLIENTE."</p>
+          <span class="dif-tag">— Nome, Cidade</span>
+        </div>
+      </div>
+    </div>
+    <!-- data-nota="OCULTO-FIM" -->
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VALOR / ROI · COMPARATIVA · OBJECIONES                        -->
+<!-- ============================================================ -->
+
+<!-- A conta que importa (ROI) -->
+<section style="background:var(--blanco);padding:54px 0;">
+  <div class="wrap">
+    <span class="eyebrow">A conta que importa</span>
+    <h2>Se paga com seus primeiros copinhos</h2>
+    <p>Não é um gasto: é a ferramenta que começa a se pagar no primeiro fim de semana.</p>
+
+    <div style="background:var(--crema);border-radius:18px;padding:24px;margin-top:20px;box-shadow:var(--sombra);">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:15.5px;font-weight:700;">
+        <span>Seu acesso ao DulceVaso (pagamento único)</span><span>R$ 27,90</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px dashed #EADDC9;font-size:15.5px;font-weight:700;">
+        <span>Lucro por copinho</span><span>≈ R$ 5</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;margin-top:14px;background:var(--verde);color:#fff;border-radius:14px;gap:10px;">
+        <span style="font-weight:800;">Vendendo só 6 copinhos</span>
+        <span style="font-family:'Lilita One',cursive;font-size:21px;white-space:nowrap;">você já recuperou</span>
+      </div>
+      <p style="font-size:14px;opacity:.85;margin-top:14px;font-weight:600;">Todo o resto do mês é lucro seu. Um fim de semana de 30 copinhos ≈ <b>R$ 150</b>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BÓNUS DE DESTAQUE ============ -->
+<section style="background:linear-gradient(180deg, var(--crema) 0%, #F5E6D3 100%); padding:54px 0;">
+  <div class="wrap">
+    <div style="background:var(--blanco); border-radius:24px; box-shadow:var(--sombra); padding:32px 24px; text-align:center; border:2px solid #EADDC9;">
+      <span class="eyebrow" style="background:var(--verde);">Bônus de Ação Rápida</span>
+      <h2 style="color:var(--frambuesa); font-size:clamp(22px, 5vw, 32px);">25 Receitas de Doces Saudáveis</h2>
+      <p style="font-size:16px; margin-bottom:20px; font-weight:600; color:var(--chocolate);">O nicho saudável é muito lucrativo. Amplie seu cardápio e venda para clientes que querem se cuidar sem culpa.</p>
+      
+      <img src="mockup-recetas.png" alt="Livro 25 Receitas Saudáveis Fit" style="width:100%; max-width:320px; border-radius:16px; margin:0 auto 20px; display:block;">
+      
+      <ul style="text-align:left; list-style:none; padding:0; margin:0 auto 24px; max-width:400px; font-size:15px; font-weight:600;">
+        <li style="margin-bottom:10px; display:flex; gap:10px;"><span style="color:var(--verde); font-weight:800;">✓</span> Doces sem açúcar e com poucas calorias</li>
+        <li style="margin-bottom:10px; display:flex; gap:10px;"><span style="color:var(--verde); font-weight:800;">✓</span> Opções veganas e sem farinha</li>
+        <li style="margin-bottom:10px; display:flex; gap:10px;"><span style="color:var(--verde); font-weight:800;">✓</span> Fáceis de montar no copo e vender com preço alto</li>
+      </ul>
+      
+      <p style="font-weight:800; font-size:18px; color:var(--caramelo); margin-bottom:14px;">Incluso GRÁTIS se você comprar hoje.</p>
+      <a class="cta-btn js-checkout" href="#precio" style="font-size:18px; padding:14px;">Quero o app e meus bônus 🍓</a>
+    </div>
+  </div>
+</section>
+
+<!-- Comparativa -->
+<section style="background:var(--crema);padding:54px 0;">
+  <div class="wrap">
+    <span class="eyebrow">Por que DulceVaso</span>
+    <h2>Não é um PDF. Não é um curso caro.</h2>
+    <p>O que os outros vendem separado (ou nem incluem), aqui está tudo em um só app.</p>
+
+    <div style="overflow-x:auto;border-radius:16px;box-shadow:var(--sombra);margin-top:20px;background:#fff;">
+      <table style="width:100%;border-collapse:collapse;font-size:13.5px;min-width:340px;">
+        <thead>
+          <tr style="background:var(--frambuesa);color:#fff;">
+            <th style="text-align:left;padding:12px 10px;font-family:'Nunito Sans',sans-serif;font-weight:800;width:40%;"></th>
+            <th style="padding:12px 6px;font-family:'Lilita One',cursive;font-weight:400;">DulceVaso</th>
+            <th style="padding:12px 6px;font-weight:700;opacity:.85;">PDF de receitas</th>
+            <th style="padding:12px 6px;font-weight:700;opacity:.85;">Curso caro</th>
+          </tr>
+        </thead>
+        <tbody style="font-weight:700;color:var(--chocolate);">
+          <tr style="border-top:1px solid #F0E2D0;"><td style="padding:11px 10px;">Calculadora de preços real</td><td style="text-align:center;color:var(--verde);font-size:16px;">✓</td><td style="text-align:center;color:#C0392B;">✗</td><td style="text-align:center;font-size:12px;opacity:.7;">às vezes</td></tr>
+          <tr style="border-top:1px solid #F0E2D0;"><td style="padding:11px 10px;">Plano de vendas passo a passo</td><td style="text-align:center;color:var(--verde);font-size:16px;">✓</td><td style="text-align:center;color:#C0392B;">✗</td><td style="text-align:center;font-size:12px;opacity:.7;">às vezes</td></tr>
+          <tr style="border-top:1px solid #F0E2D0;"><td style="padding:11px 10px;">Mensagens de WhatsApp prontas</td><td style="text-align:center;color:var(--verde);font-size:16px;">✓</td><td style="text-align:center;color:#C0392B;">✗</td><td style="text-align:center;color:#C0392B;">✗</td></tr>
+          <tr style="border-top:1px solid #F0E2D0;"><td style="padding:11px 10px;">CRM com lembretes de recompra</td><td style="text-align:center;color:var(--verde);font-size:16px;">✓</td><td style="text-align:center;color:#C0392B;">✗</td><td style="text-align:center;color:#C0392B;">✗</td></tr>
+          <tr style="border-top:1px solid #F0E2D0;"><td style="padding:11px 10px;">Lucro líquido automático</td><td style="text-align:center;color:var(--verde);font-size:16px;">✓</td><td style="text-align:center;color:#C0392B;">✗</td><td style="text-align:center;color:#C0392B;">✗</td></tr>
+          <tr style="border-top:1px solid #F0E2D0;"><td style="padding:11px 10px;">Funciona como app no seu celular</td><td style="text-align:center;color:var(--verde);font-size:16px;">✓</td><td style="text-align:center;color:#C0392B;">✗</td><td style="text-align:center;color:#C0392B;">✗</td></tr>
+          <tr style="border-top:1px solid #F0E2D0;"><td style="padding:11px 10px;">Acesso imediato</td><td style="text-align:center;color:var(--verde);font-size:16px;">✓</td><td style="text-align:center;color:var(--verde);font-size:16px;">✓</td><td style="text-align:center;font-size:12px;opacity:.7;">às vezes</td></tr>
+          <tr style="border-top:1px solid #F0E2D0;background:#FFFBF4;"><td style="padding:13px 10px;font-weight:800;">Preço</td><td style="text-align:center;font-family:'Lilita One',cursive;color:var(--frambuesa);font-size:17px;">R$ 27,90</td><td style="text-align:center;opacity:.7;">R$ 20–50</td><td style="text-align:center;opacity:.7;">R$ 300+</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="text-align:center;font-size:12.5px;opacity:.65;margin-top:10px;font-weight:600;">Comparação com os formatos típicos do mercado.</p>
+  </div>
+</section>
+
+<!-- Objeciones + garantía -->
+<section style="background:var(--blanco);padding:54px 0;">
+  <div class="wrap">
+    <span class="eyebrow">E se…?</span>
+    <h2>Isto é pra você mesmo que…</h2>
+
+    <div style="display:grid;gap:12px;margin-top:20px;">
+      <div style="background:var(--crema);border-radius:14px;padding:16px 18px;box-shadow:var(--sombra);">
+        <b style="display:block;color:var(--frambuesa);font-size:15.5px;">…você não tenha forno</b>
+        <span style="font-size:15px;">As 40 receitas são sem forno, com ingredientes de qualquer mercado.</span>
+      </div>
+      <div style="background:var(--crema);border-radius:14px;padding:16px 18px;box-shadow:var(--sombra);">
+        <b style="display:block;color:var(--frambuesa);font-size:15.5px;">…você nunca tenha vendido nada</b>
+        <span style="font-size:15px;">O plano de 7 passos diz exatamente o que fazer cada dia até sua primeira venda.</span>
+      </div>
+      <div style="background:var(--crema);border-radius:14px;padding:16px 18px;box-shadow:var(--sombra);">
+        <b style="display:block;color:var(--frambuesa);font-size:15.5px;">…você tenha pouco tempo</b>
+        <span style="font-size:15px;">Os copinhos ficam prontos em minutos e você vende pelo WhatsApp, de casa.</span>
+      </div>
+      <div style="background:var(--crema);border-radius:14px;padding:16px 18px;box-shadow:var(--sombra);">
+        <b style="display:block;color:var(--frambuesa);font-size:15.5px;">…você não seja boa de tecnologia</b>
+        <span style="font-size:15px;">Se você sabe usar WhatsApp, sabe usar o DulceVaso. Botões grandes, passos claros.</span>
+      </div>
+      <div style="background:#F0FFF5;border:2px solid #A8E6C3;border-radius:14px;padding:16px 18px;">
+        <b style="display:block;color:var(--verde);font-size:15.5px;">…você tenha medo de investir</b>
+        <span style="font-size:15px;">Você tem <b>7 dias de garantia</b>. Se não for pra você, devolvemos 100%. Risco zero.</span>
+      </div>
+    </div>
+
+    <a class="cta-btn js-checkout" href="#precio" style="margin-top:24px;">Comprar agora 🍓</a>
+    <p class="price-info"><span class="price-local"></span><span class="price-usd">R$ 27,90</span></p>
+    <p class="pago-seguro">🔒 Pagamento 100% seguro via Hotmart · PIX, boleto ou cartão</p>
+  </div>
+</section>
+
+<!-- ============ PARA QUIÉN (movido antes del precio) ============ -->
+<section class="quien">
+  <div class="wrap">
+    <span class="eyebrow">É pra você?</span>
+    <h2>O DulceVaso é pra você se…</h2>
+    <ul>
+      <li>Quer uma renda extra sem largar sua casa ou seu trabalho</li>
+      <li>Gosta de cozinhar mas não sabe quanto cobrar</li>
+      <li>Não tem forno nem equipamento profissional</li>
+      <li>Precisa de um plano simples que diga o que fazer cada dia</li>
+      <li>Quer vender pelo WhatsApp, sem abrir uma loja</li>
+    </ul>
+    <a class="cta-btn js-checkout" href="#precio" style="margin-top:24px;">Comprar agora 🍓</a>
+    <p class="price-info"><span class="price-local"></span><span class="price-usd">R$ 27,90</span></p>
+    <p class="pago-seguro">🔒 Pagamento 100% seguro via Hotmart · PIX, boleto ou cartão</p>
+  </div>
+</section>
+
+<!-- ============ PRECIO ============ -->
+<section class="precio" id="precio">
+  <div class="wrap">
+    <span class="eyebrow">Oferta de lançamento</span>
+    <h2>Comece seu negócio doce hoje</h2>
+
+    <!-- Urgência genuína -->
+    <div style="background:rgba(0,0,0,.25);border-radius:14px;padding:14px 20px;margin-bottom:20px;display:inline-block;">
+      <p style="font-size:15px;font-weight:800;letter-spacing:.5px;">🔥 Preço de fundadora — pode subir sem aviso</p>
+      <p style="font-size:13px;opacity:.8;margin-top:4px;">Seja uma das primeiras a começar com o DulceVaso</p>
+    </div>
+    <p class="anclado">Valor total: R$ 197</p>
+    <div style="display:flex; justify-content:center; align-items:baseline;">
+      <span style="width:50px; visibility:hidden;"></span>
+      <p class="grande" style="margin-bottom:0; margin-top:8px;">R$ 27,90</p>
+      <span style="width:50px; font-size:26px; font-weight:800; color:#FFD9A0; text-align:left; margin-left:8px;"></span>
+    </div>
+    <p class="unico">Pagamento único · sem mensalidade</p>
+    <a class="cta-btn js-checkout" href="#precio">Comprar agora 🍓</a>
+    <p class="price-info"><span class="price-local"></span><span class="price-usd">R$ 27,90</span></p>
+    <p class="pago-seguro">🔒 Pagamento 100% seguro via Hotmart · PIX, boleto ou cartão</p>
+    <p class="cta-sub" style="color:var(--blanco);opacity:.85">Acesso imediato no seu e-mail · Funciona em qualquer celular</p>
+    <p class="cta-sub" style="color:var(--blanco);opacity:.75;margin-top:6px;">🛡️ Garantia de 7 dias — 100% de reembolso, sem perguntas</p>
+    <div class="aviso-doc">
+      <div class="titulo">🔒 Pagamento 100% seguro, processado no Brasil</div>
+      <p>O Hotmart processa seu pagamento <b>em reais</b>, com PIX, boleto ou cartão. No checkout pode ser solicitado seu <b>CPF</b> — é um requisito fiscal normal e seus dados estão protegidos.</p>
+    </div>
+    <div class="garantia-card">
+      <div class="escudo">🛡️</div>
+      <b>Garantia total de 7 dias</b>
+      <p>Se você não amar, é só nos escrever e devolvemos <strong>100% do seu dinheiro</strong>. Sem perguntas, sem riscos. Sua compra é protegida pelo Hotmart.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Perguntas frequentes</span>
+    <h2>Dúvidas comuns</h2>
+    <details>
+      <summary>Preciso baixar algo de uma loja de apps?</summary>
+      <p>Não. O DulceVaso funciona pelo navegador do seu celular e você pode adicionar à tela inicial como qualquer app. Quase não ocupa espaço.</p>
+    </details>
+    <details>
+      <summary>Preciso de experiência em confeitaria?</summary>
+      <p>Não. As receitas são passo a passo, sem forno e com ingredientes que você acha em qualquer mercado do seu bairro.</p>
+    </details>
+    <details>
+      <summary>Como recebo meu acesso?</summary>
+      <p>Assim que seu pagamento é confirmado, você recebe um e-mail com o link de acesso imediato. Em menos de 2 minutos já está dentro.</p>
+    </details>
+    <details>
+      <summary>Funciona na minha cidade?</summary>
+      <p>Sim. O DulceVaso funciona em todo o Brasil. Você pode pagar com PIX, boleto ou cartão de crédito.</p>
+    </details>
+    <details>
+      <summary>Por que pedem meu CPF na compra?</summary>
+      <p>É um requisito fiscal normal. Ao informar seu CPF, o Hotmart processa a compra como uma <b>transação nacional em reais</b>. É um passo seguro: seus dados estão protegidos e a compra é respaldada pelo Hotmart, uma das plataformas de pagamento mais usadas do Brasil.</p>
+    </details>
+    <details>
+      <summary>O preço que aparece é o final?</summary>
+      <p>Sim. O valor é R$ 27,90, pagamento único — exatamente o que você vê no checkout do Hotmart, sem surpresas.</p>
+    </details>
+    <details>
+      <summary>É pagamento único mesmo?</summary>
+      <p>Sim: você paga uma única vez R$ 27,90 e o acesso é seu. Sem assinaturas nem cobranças escondidas.</p>
+    </details>
+    <details>
+      <summary>E se eu não souber usar apps nem tecnologia?</summary>
+      <p>Se você sabe usar WhatsApp, já sabe usar o DulceVaso. Foi feito para celular, com botões grandes e passos claros. Não precisa instalar nada — funciona direto pelo navegador.</p>
+    </details>
+    <details>
+      <summary>E se eu não vender nada?</summary>
+      <p>Você tem 7 dias de garantia total. Se usar e não gostar, devolvemos 100% do seu dinheiro sem perguntas. Mas com 40 receitas testadas, o plano de vendas e as mensagens prontas para WhatsApp, as chances estão a seu favor.</p>
+    </details>
+    <details>
+      <summary>Funciona sem internet?</summary>
+      <p>Sim. Depois de instalar no celular, funciona offline. Você pode registrar vendas, consultar receitas e usar a calculadora mesmo sem sinal.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>DulceVaso</b> · Transforme sua cozinha em uma fonte de renda</p>
+    <p>Os resultados podem variar de pessoa para pessoa. Este produto não garante renda.</p>
+    <p>🔒 Compra processada de forma 100% segura pelo Hotmart.</p>
+  </div>
+</footer>
+
+<!-- ============ BARRA FIJA ============ -->
+<div class="barra-fija" id="barraFija">
+  <div class="precio-mini">
+    <span class="tach">R$ 197</span>
+    <span class="ahora">R$ 27,90</span>
+    <span class="local-mini" id="barraLocalPrice"></span>
+  </div>
+  <a class="cta-btn js-checkout" href="#precio">Comprar agora</a>
+</div>
+
+<script>
+  // Meta Pixel (se activa solo si configuraste tu ID)
+  if (META_PIXEL_ID && META_PIXEL_ID !== "TU_PIXEL_ID") {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', META_PIXEL_ID);
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'DulceVaso BR Landing'});
+  }
+
+  // Todos los botones llevan al checkout y disparan InitiateCheckout
+  document.querySelectorAll('.js-checkout').forEach(btn => {
+    btn.addEventListener('click', e => {
+      if (CHECKOUT_URL.includes('TU_CODIGO_AQUI')) return;
+      e.preventDefault();
+      if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', {value: 27.90, currency: 'BRL'});
+      window.location.href = CHECKOUT_URL;
+    });
+  });
+
+  // Video play overlay
+  (function() {
+    const wrapper = document.getElementById('videoWrapper');
+    const video = document.getElementById('demoVideo');
+    const overlay = document.getElementById('playOverlay');
+    if (wrapper && video && overlay) {
+      overlay.addEventListener('click', function() {
+        video.play();
+      });
+      video.addEventListener('play', function() {
+        wrapper.classList.add('playing');
+      });
+    }
+  })();
+
+  // Barra fija aparece depois do hero
+  const barra = document.getElementById('barraFija');
+  const hero = document.querySelector('.hero');
+  window.addEventListener('scroll', () => {
+    barra.classList.toggle('visible', window.scrollY > hero.offsetHeight);
+  }, {passive:true});
+
+</script>
+</body>
+</html>
