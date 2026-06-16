@@ -35,3 +35,25 @@ Landing page (pt-BR) do **DulceVaso** adaptada para o mercado **brasileiro**.
   de divulgar.
 - Se usar um domínio próprio em vez de `doce-no-copo.pages.dev`, atualize as
   URLs `og:url`, `og:image` e `canonical` no `<head>` do `index.html`.
+
+## Mockups ainda em espanhol — TROQUE
+
+Estas imagens vieram do DulceVaso e ainda têm texto em espanhol. Use
+`Order Pump/gerador-mockups-pt-br.html` (abra localmente no navegador, cole
+sua chave de API da OpenAI ou do Gemini) para gerar as versões em português
+e baixe substituindo os arquivos com o **mesmo nome** na raiz do repo:
+
+- [ ] `app-en-mano.jpg`
+- [ ] `mockup-recetas-rentables.png`
+- [ ] `mockup-calculadora.png`
+- [ ] `mockup-plan-ventas.png`
+- [ ] `mockup-kit-whatsapp.png`
+- [ ] `mockup-guia-empaque.png`
+- [ ] `mockup-recetas.png`
+- [ ] `encomiendas.jpg` (opcional — só os nomes nas etiquetas, não é bem espanhol)
+
+`hero-mujer.jpg` e as 6 fotos da galeria de receitas (`postre-fresa.jpg` etc.)
+não têm texto na imagem, então não precisam de troca.
+
+Os nomes de arquivo e os `alt=""` no `index.html` já estão em português —
+basta substituir o conteúdo de cada imagem, sem editar HTML.
