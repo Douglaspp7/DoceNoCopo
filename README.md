@@ -14,8 +14,7 @@ Landing page (pt-BR) do **DulceVaso** adaptada para o mercado **brasileiro**.
 3. Os **arquivos de mídia** abaixo já foram copiados do repositório DulceVaso e
    estão na raiz, ao lado do `index.html`:
 
-   - `hero-mujer.jpg`  ← ainda é a foto original do DulceVaso; **substitua pela
-     foto da brasileira** quando tiver uma (mantenha esse nome)
+   - `hero-mujer.jpg`  ← já é a foto brasileira
    - `app-en-mano.jpg`
    - `demo-app.mp4`
    - `postre-fresa.jpg`, `postre-chocolate.jpg`, `mazamorra-morada.jpg`,
