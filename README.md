@@ -23,12 +23,15 @@ Landing page (pt-BR) do **DulceVaso** adaptada para o mercado **brasileiro**.
    - `mockup-recetas-rentables.png`, `mockup-calculadora.png`, `mockup-plan-ventas.png`,
      `mockup-kit-whatsapp.png`, `mockup-guia-empaque.png`, `mockup-recetas.png`
 
-4. Conecte ao **Cloudflare Pages** (Connect to Git → este repo → build command vazio,
-   output dir `/`).
+4. Conecte ao **Cloudflare Pages** (Connect to Git → repo `Douglaspp7/DoceNoCopo` →
+   production branch `main` → build command vazio → output dir `/`).
+   Nomeie o projeto **`doce-no-copo`** para que a URL gerada seja
+   `doce-no-copo.pages.dev` (já configurado nas tags `og:`/`canonical`).
 
 ## Antes de anunciar — TROQUE
 
-- **`CHECKOUT_URL`** (topo do `index.html`): coloque o link da oferta **BR de R$ 27,90**
-  no Hotmart. O link atual é placeholder (produto em USD).
-- **`hero-mujer.jpg`**: troque pela foto com biotipo brasileiro.
-- URLs `og:` / `canonical` no `<head>`: ajuste para o seu domínio do Cloudflare.
+- **`CHECKOUT_URL`** (topo do `index.html`): ainda é o placeholder em USD do
+  DulceVaso. Troque pelo link da oferta **BR de R$ 27,90** no Hotmart antes
+  de divulgar.
+- Se usar um domínio próprio em vez de `doce-no-copo.pages.dev`, atualize as
+  URLs `og:url`, `og:image` e `canonical` no `<head>` do `index.html`.
