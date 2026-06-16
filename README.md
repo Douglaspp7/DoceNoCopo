@@ -10,11 +10,12 @@ Landing page (pt-BR) do **DulceVaso** adaptada para o mercado **brasileiro**.
 ## Como publicar
 
 1. Crie este repositório no GitHub: `doce-no-copo`.
-2. Suba o `index.html` (este arquivo já está pronto).
-3. Suba os **arquivos de mídia** abaixo (são os mesmos do repositório DulceVaso —
-   pode copiar de lá). Eles devem ficar na **raiz**, ao lado do `index.html`:
+2. `index.html` já está pronto na raiz.
+3. Os **arquivos de mídia** abaixo já foram copiados do repositório DulceVaso e
+   estão na raiz, ao lado do `index.html`:
 
-   - `hero-mujer.jpg`  ← substitua pela **foto da brasileira** (mantenha esse nome)
+   - `hero-mujer.jpg`  ← ainda é a foto original do DulceVaso; **substitua pela
+     foto da brasileira** quando tiver uma (mantenha esse nome)
    - `app-en-mano.jpg`
    - `demo-app.mp4`
    - `postre-fresa.jpg`, `postre-chocolate.jpg`, `mazamorra-morada.jpg`,
