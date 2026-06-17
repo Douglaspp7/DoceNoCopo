@@ -988,7 +988,10 @@
       if (CHECKOUT_URL.includes('TU_CODIGO_AQUI')) return;
       e.preventDefault();
       if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', {value: 37.00, currency: 'BRL'});
-      window.location.href = CHECKOUT_URL;
+      // preserva os UTMs da página no checkout (atribuição UTMfy/Hotmart por criativo)
+      var qs = window.location.search.replace(/^\?/, '');
+      var sep = CHECKOUT_URL.indexOf('?') > -1 ? '&' : '?';
+      window.location.href = qs ? CHECKOUT_URL + sep + qs : CHECKOUT_URL;
     });
   });
 
