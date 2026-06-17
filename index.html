@@ -725,38 +725,36 @@
     </div>
 
     <!-- =====================================================================
-         SEÇÃO DE DEPOIMENTOS — ESTRUTURA PRONTA (oculta por enquanto)
-         ---------------------------------------------------------------------
-         COMO ATIVAR quando tiver depoimentos REAIS:
-           1) No <section> logo abaixo, troque  style="display:none"  por  style=""
-           2) Em cada card, substitua o texto entre aspas pelo depoimento real
-              e troque "— Nome, Cidade" pelo nome real (com permissão da cliente).
-           3) Tem prints de WhatsApp? Troque o bloco do card por:
-              <img src="depoimento-1.jpg" alt="Print de cliente" style="width:100%;border-radius:12px;">
-           4) Tem mais de 3? Duplique um <div class="dif-card testi-card"> a mais.
-         REGRA: NUNCA inventar depoimento. Use só opiniões reais e autorizadas.
+         SEÇÃO DE DEPOIMENTOS — ATIVA (prints reais de clientes)
+         Para adicionar mais: copie um <div class="dif-card testi-card"> e
+         aponte o <img src> para o novo print (depoimento-5.png, etc.).
          ===================================================================== -->
-    <section id="depoimentos" style="display:none;background:var(--crema);padding:54px 0;margin-top:40px;border-radius:24px;">
+    <section id="depoimentos" style="background:var(--crema);padding:54px 0;margin-top:40px;border-radius:24px;">
       <div class="wrap">
         <span class="eyebrow">Quem já está usando</span>
         <h2>O que as primeiras clientes estão dizendo</h2>
-        <p style="text-align:center;">Histórias reais de quem começou seu negócio de doces com o DulceVaso.</p>
+        <p style="text-align:center;">Mensagens reais de clientes que começaram seu negócio de doces com o DulceVaso.</p>
 
         <div class="dif-grid" style="margin-top:28px;">
-          <div class="dif-card testi-card">
-            <div style="color:#F5A623;font-size:18px;">★★★★★</div>
-            <p>"[COLE AQUI O DEPOIMENTO REAL DA CLIENTE — o que mudou, quanto vendeu, como foi a primeira venda.]"</p>
-            <span class="dif-tag">— Nome, Cidade</span>
+          <div class="dif-card testi-card" style="padding:14px;">
+            <img src="depoimento-1.png" alt="Print de WhatsApp de cliente: já fiz mais de R$ 2.000 em vendas esse mês" loading="lazy" style="width:100%;border-radius:12px;display:block;" onerror="this.closest('.testi-card').style.display='none'">
+            <div style="color:#F5A623;font-size:16px;margin-top:10px;">★★★★★</div>
+            <p style="margin-top:4px;"><b>Fernanda</b> — já passou de <b>R$ 2.000</b> em vendas no mês</p>
           </div>
-          <div class="dif-card testi-card">
-            <div style="color:#F5A623;font-size:18px;">★★★★★</div>
-            <p>"[COLE AQUI O SEGUNDO DEPOIMENTO REAL.]"</p>
-            <span class="dif-tag">— Nome, Cidade</span>
+          <div class="dif-card testi-card" style="padding:14px;">
+            <img src="depoimento-2.png" alt="Print de WhatsApp de cliente: hoje já vendi 18 unidades" loading="lazy" style="width:100%;border-radius:12px;display:block;" onerror="this.closest('.testi-card').style.display='none'">
+            <div style="color:#F5A623;font-size:16px;margin-top:10px;">★★★★★</div>
+            <p style="margin-top:4px;"><b>Ana Lúcia</b> — <b>18 unidades</b> vendidas no primeiro fim de semana</p>
           </div>
-          <div class="dif-card testi-card">
-            <div style="color:#F5A623;font-size:18px;">★★★★★</div>
-            <p>"[COLE AQUI O TERCEIRO DEPOIMENTO REAL.]"</p>
-            <span class="dif-tag">— Nome, Cidade</span>
+          <div class="dif-card testi-card" style="padding:14px;">
+            <img src="depoimento-3.png" alt="Print de WhatsApp de cliente: recuperei o valor que paguei no primeiro dia" loading="lazy" style="width:100%;border-radius:12px;display:block;" onerror="this.closest('.testi-card').style.display='none'">
+            <div style="color:#F5A623;font-size:16px;margin-top:10px;">★★★★★</div>
+            <p style="margin-top:4px;"><b>Gisele</b> — recuperou o investimento <b>no 1º dia</b></p>
+          </div>
+          <div class="dif-card testi-card" style="padding:14px;">
+            <img src="depoimento-4.png" alt="Print de WhatsApp de cliente: parece que finalmente tenho um negócio de verdade" loading="lazy" style="width:100%;border-radius:12px;display:block;" onerror="this.closest('.testi-card').style.display='none'">
+            <div style="color:#F5A623;font-size:16px;margin-top:10px;">★★★★★</div>
+            <p style="margin-top:4px;"><b>Cláudia</b> — "finalmente tenho um <b>negócio de verdade</b>"</p>
           </div>
         </div>
 
