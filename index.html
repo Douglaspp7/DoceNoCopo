@@ -1017,6 +1017,39 @@
     barra.classList.toggle('visible', window.scrollY > hero.offsetHeight);
   }, {passive:true});
 
+  // ===== Tracking de profundidade de rolagem (diagnóstico de funil) =====
+  (function(){
+    if (typeof fbq !== 'function') return;
+    var fired = {};
+    function fire(name){ if (fired[name]) return; fired[name] = true; fbq('trackCustom', name); }
+
+    // Marcos de rolagem: 25 / 50 / 75 / 100% da página
+    function onScroll(){
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      if (max <= 0) return;
+      var pct = (window.scrollY || doc.scrollTop) / max * 100;
+      if (pct >= 25) fire('Scroll_25');
+      if (pct >= 50) fire('Scroll_50');
+      if (pct >= 75) fire('Scroll_75');
+      if (pct >= 90) fire('Scroll_100');
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    // Seções-chave entrando na tela
+    function watch(sel, name){
+      var el = document.querySelector(sel);
+      if (!el || !('IntersectionObserver' in window)) return;
+      var io = new IntersectionObserver(function(entries){
+        if (entries[0].isIntersecting){ fire(name); io.disconnect(); }
+      }, {threshold:0.4});
+      io.observe(el);
+    }
+    watch('#depoimentos', 'Viu_Depoimentos');
+    watch('#precio', 'Viu_Preco');
+  })();
+
 </script>
 </body>
 </html>
