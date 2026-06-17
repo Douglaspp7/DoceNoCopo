@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Substituição de Ingredientes — DulceVaso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-color: #FAFAF8;
+    --text-main: #2D2A26;
+    --text-light: #6E6862;
+    --gold: #D4A574;
+    --copper: #C8956C;
+    --accent: #A67B5B;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Montserrat', 'Poppins', sans-serif;
+    background: #E8DDD0;
+    color: var(--text-main);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============ PAGE ============ */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: var(--bg-color);
+    page-break-after: always;
+    page-break-inside: avoid;
+    position: relative;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+  .page-inner { padding: 40px 50px 70px; position: relative; }
+  .page-inner.no-top-pad { padding-top: 0; }
+
+  /* ============ COVER ============ */
+  .cover {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    background:
+      linear-gradient(180deg, rgba(45,42,38,.4) 0%, rgba(45,42,38,.7) 60%, rgba(45,42,38,.95) 100%),
+      url('img/cover.jpg') center/cover no-repeat;
+    color: var(--white);
+  }
+  .cover-inner {
+    padding: 60px 50px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-height: 297mm;
+    width: 100%;
+  }
+  .cover-badge {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 14px;
+    letter-spacing: 4px; text-transform: uppercase;
+    background: var(--copper); color: var(--white);
+    padding: 10px 28px; border-radius: 999px;
+    margin-bottom: 40px;
+  }
+  .cover h1 {
+    font-size: 52px; font-weight: 800;
+    line-height: 1.1; margin-bottom: 24px;
+    max-width: 600px; letter-spacing: -1px;
+    text-shadow: 0 4px 20px rgba(0,0,0,.4);
+  }
+  .cover .subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px; font-weight: 400;
+    opacity: .9; max-width: 500px;
+    line-height: 1.6; margin-bottom: 50px;
+  }
+  .cover .brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; font-size: 16px;
+    letter-spacing: 5px; text-transform: uppercase;
+    opacity: .8;
+  }
+
+  /* ============ HERO HEADER (BACKGROUND IMAGE) ============ */
+  .hero-header {
+    width: 100%; height: 260px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px 50px;
+    margin-bottom: 30px;
+  }
+  .hero-header::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.85) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    color: var(--white);
+  }
+  .hero-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 4px;
+  }
+  .hero-title {
+    font-size: 34px; font-weight: 800;
+    line-height: 1.1; letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  /* ============ PAGE HEADER / FOOTER ============ */
+  .pg-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 30px; padding-bottom: 12px;
+    border-bottom: 2px solid #EBE4DD;
+  }
+  .pg-header .logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .pg-header .section-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px; font-weight: 500;
+    color: var(--text-light); text-transform: uppercase; letter-spacing: 1px;
+  }
+  .pg-footer {
+    position: absolute; bottom: 30px; left: 50px; right: 50px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px; color: var(--text-light); opacity: .6;
+    letter-spacing: 1px; text-transform: uppercase; font-weight: 500;
+  }
+
+  /* ============ TYPOGRAPHY ============ */
+  h1.page-title {
+    font-size: 38px; font-weight: 800;
+    color: var(--text-main); margin-bottom: 8px;
+    line-height: 1.1; letter-spacing: -1px;
+  }
+  h2 {
+    font-size: 26px; font-weight: 700;
+    color: var(--text-main); margin: 26px 0 14px;
+    line-height: 1.2; letter-spacing: -0.5px;
+  }
+  h3 {
+    font-size: 20px; font-weight: 700;
+    color: var(--accent); margin: 22px 0 8px;
+  }
+  .title-divider {
+    width: 60px; height: 4px;
+    background: var(--gold);
+    border-radius: 2px; margin: 12px 0 24px;
+  }
+
+  p { margin-bottom: 16px; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 400; }
+  strong { font-weight: 600; color: var(--text-main); }
+
+  /* ============ HIGHLIGHT / NOTE ============ */
+  .highlight {
+    background: #FFF1E5;
+    padding: 16px 24px; border-radius: 12px;
+    border-left: 5px solid var(--copper);
+    margin: 18px 0; font-weight: 500;
+    font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6;
+    color: #5C3D2E;
+  }
+  .note {
+    background: var(--white);
+    border: 1px solid #EBE4DD;
+    padding: 16px 20px; border-radius: 12px;
+    margin: 16px 0; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 400;
+    color: var(--text-light);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  }
+  .note::before {
+    content: "📌 Nota importante: ";
+    font-weight: 600; color: var(--accent);
+  }
+
+  /* ============ LIST ============ */
+  ul { list-style: none; padding: 0; margin: 16px 0; }
+  ul li {
+    padding: 6px 0 6px 26px; position: relative;
+    font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 400;
+  }
+  ul li::before {
+    content: ""; position: absolute; left: 0; top: 15px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--copper);
+  }
+
+  /* ============ TABLE ============ */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 20px 0; font-family: 'Poppins', sans-serif; font-size: 15px;
+    border-radius: 12px; overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  }
+  thead { background: var(--text-main); color: var(--white); }
+  th {
+    padding: 14px 18px; text-align: left;
+    font-weight: 600; font-size: 13px;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  td {
+    padding: 14px 18px;
+    border-bottom: 1px solid #EBE4DD;
+    font-size: 15px; font-weight: 400;
+  }
+  tr:nth-child(even) td { background: #FAF7F2; }
+  tr:last-child td { border-bottom: none; }
+
+  /* ============ RECIPE BOX ============ */
+  .recipe-box {
+    background: var(--white);
+    border: 1px solid #EBE4DD;
+    border-radius: 16px; padding: 26px 30px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  }
+  .recipe-box h3 {
+    margin-top: 0; color: var(--text-main);
+    font-size: 20px; font-weight: 800;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .recipe-box p { font-family: 'Poppins', sans-serif; font-size: 15px; }
+  .recipe-box ul li { font-size: 15px; }
+
+  /* ============ SUMARIO ============ */
+  .sumario-item {
+    display: flex; justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0; font-size: 16px;
+    border-bottom: 1px dashed #DCCBBA;
+  }
+  .sumario-item span:first-child { font-family: 'Poppins', sans-serif; font-weight: 500; }
+  .sumario-item span:last-child {
+    font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--copper);
+    font-size: 15px;
+  }
+
+  /* ============ CONCLUSION ============ */
+  .conclusion-box {
+    background: var(--text-main);
+    color: var(--white); padding: 46px;
+    border-radius: 20px; text-align: center;
+    margin-top: 24px;
+  }
+  .conclusion-box h2 {
+    color: var(--gold); margin-bottom: 18px;
+    font-size: 34px; font-weight: 800;
+  }
+  .conclusion-box p {
+    font-family: 'Poppins', sans-serif;
+    opacity: .9; font-size: 16px; font-weight: 300;
+    max-width: 500px; margin: 0 auto 16px;
+  }
+  .conclusion-box .abrazo {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic; font-size: 22px; font-weight: 600;
+    color: var(--gold); margin-top: 28px;
+  }
+
+  @media print {
+    body { background: var(--bg-color); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { box-shadow: none; margin: 0; }
+  }
+  @media screen {
+    .page { box-shadow: 0 0 40px rgba(0,0,0,.1); margin-bottom: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ CAPA ═══════════════════ -->
+<div class="page cover">
+  <div class="cover-inner">
+    <div class="cover-badge">DulceVaso — Guia exclusivo</div>
+    <h1>Manual de Substituição de Ingredientes</h1>
+    <p class="subtitle">Aprenda a substituir os ingredientes mais comuns das suas receitas sem perder sabor, textura nem qualidade. Seu guia rápido para cozinhar sem limites.</p>
+    <p class="brand">DulceVaso</p>
+  </div>
+</div>
+
+<!-- ═══════════════════ SUMÁRIO ═══════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="pg-header">
+      <span class="logo">DulceVaso</span>
+      <span class="section-name">Sumário</span>
+    </div>
+
+    <h1 class="page-title">Sumário</h1>
+    <div class="title-divider"></div>
+
+    <div class="sumario-item"><span>Introdução</span><span>03</span></div>
+    <div class="sumario-item"><span>Cap. 1 · Como substituir o Mel?</span><span>04</span></div>
+    <div class="sumario-item"><span>Cap. 2 · Como substituir o Açúcar?</span><span>05</span></div>
+    <div class="sumario-item"><span>Cap. 3 · Como substituir o Leite Animal?</span><span>08</span></div>
+    <div class="sumario-item"><span>Cap. 4 · Como substituir as Farinhas Brancas?</span><span>10</span></div>
+    <div class="sumario-item"><span>Cap. 5 · Como substituir a Goma Xantana?</span><span>11</span></div>
+    <div class="sumario-item"><span>Cap. 6 · Como substituir o Ovo?</span><span>12</span></div>
+    <div class="sumario-item"><span>Cap. 7 · Como substituir a Manteiga?</span><span>14</span></div>
+    <div class="sumario-item"><span>Cap. 8 · Como substituir o Chocolate em Pó?</span><span>15</span></div>
+    <div class="sumario-item"><span>Cap. 9 · Como substituir o Fermento?</span><span>16</span></div>
+    <div class="sumario-item"><span>Cap. 10 · Como substituir o Creme de Leite?</span><span>17</span></div>
+    <div class="sumario-item"><span>Cap. 11 · Como substituir o Leite Condensado?</span><span>18</span></div>
+    <div class="sumario-item"><span>Conclusão</span><span>19</span></div>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 02</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ INTRODUÇÃO ═══════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="pg-header">
+      <span class="logo">DulceVaso</span>
+      <span class="section-name">Introdução</span>
+    </div>
+
+    <h1 class="page-title">Introdução</h1>
+    <div class="title-divider"></div>
+
+    <p>Se você chegou até este e-book, significa que quer aprender tudo sobre <strong>"SUBSTITUIÇÃO DE INGREDIENTES"</strong> para as suas receitas.</p>
+
+    <p>É muito importante que você saiba fazer pelo menos as principais substituições de ingredientes. Porque, às vezes, alguns dos ingredientes da receita não estão disponíveis na sua região ou você não pode consumi-los — e isso não deveria te impedir de preparar suas receitas. Assim, você poderá fazer as substituições de forma que a sua sobremesa fique com o sabor, o aroma e a textura da receita original.</p>
+
+    <p><strong>Não tenha medo de fazer as substituições!</strong> Se você é intolerante ou algum ingrediente não te faz bem, troque — é simples assim!</p>
+
+    <p>Não é fácil ver várias receitas deliciosas por toda parte e não poder prepará-las porque algum ingrediente você não pode ou não quer consumir.</p>
+
+    <p>Já temos uma lista dos ingredientes que as nossas alunas não podem consumir e que querem substituir:</p>
+
+    <ul>
+      <li>Mel, Açúcar, Leite animal, Farinhas brancas</li>
+      <li>Goma xantana, Ovo, Manteiga</li>
+      <li>Chocolate em pó, Fermentos</li>
+      <li>Creme de leite, Leite condensado</li>
+    </ul>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 03</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 1 — MEL ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/honey.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 1</div>
+      <div class="hero-title">Como substituir o Mel?</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>O mel é um adoçante natural, que já é um substituto do açúcar. Normalmente é substituído por veganos ou por quem tem alergia ou não pode consumi-lo por causa do excesso de calorias.</p>
+    <p>Caso o problema seja o nível de açúcar, você pode substituí-lo por adoçantes. Ele também pode ser substituído nas mesmas proporções por:</p>
+
+    <ul>
+      <li>Melado de cana</li>
+      <li>Xarope de cana (claro ou escuro)</li>
+      <li>Xarope de agave</li>
+      <li>Néctar de coco</li>
+      <li>Xarope de arroz integral</li>
+      <li>Mel vegano</li>
+    </ul>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 04</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 2 — AÇÚCAR (p1) ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/sugar.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 2</div>
+      <div class="hero-title">Como substituir o Açúcar?</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>Este ingrediente está presente em quase todas as receitas: pães, bolos, doces e até onde você acha que não está. Estamos falando do açúcar branco, o tradicional. Muitas pessoas procuram evitá-lo especificamente.</p>
+
+    <h3>Mel</h3>
+    <p>É uma alternativa natural feita pelas abelhas para quem busca, aos poucos, ir diminuindo o açúcar na dieta. Embora seja mais nutritivo que o açúcar comum, o mel é bem mais calórico.</p>
+    <div class="highlight">1 xícara de açúcar equivale a meia (½) xícara de mel.</div>
+
+    <h3>Néctar de agave</h3>
+    <p>É um néctar extraído de uma planta e usado como adoçante orgânico. É mais doce que o açúcar e parecido com o mel, mas com coloração e textura mais suaves.</p>
+    <div class="highlight">1 xícara de açúcar equivale a ¾ de xícara de néctar de agave.</div>
+    <div class="note">Para cada medida de néctar, diminua 60 ml de líquidos na sua receita.</div>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 05</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 2 — AÇÚCAR (p2) ═══════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="pg-header"><span class="logo">DulceVaso</span><span class="section-name">Capítulo 2 · continuação</span></div>
+    <h2>Outras alternativas ao açúcar</h2>
+    <div class="title-divider"></div>
+
+    <h3>Frutose</h3>
+    <p>A frutose é o açúcar presente nas frutas. Mesmo sendo natural, o valor calórico é o mesmo da sacarose.</p>
+    <div class="highlight">1 xícara de açúcar equivale a meia (½) xícara de frutose.</div>
+
+    <h3>Xilitol</h3>
+    <p>Com doçura parecida com a do açúcar, é uma espécie de álcool extraído de frutas e vegetais. Tem menos calorias e sua aparência é idêntica à do açúcar tradicional. Pode ser usado por pessoas com diabetes. <strong>É a substituição que mais recomendamos para bolos e pães.</strong></p>
+    <div class="highlight">1 xícara de açúcar equivale a 1 xícara de xilitol.</div>
+
+    <h3>Eritritol</h3>
+    <p>Adoçante muito utilizado em alimentos de baixo teor calórico. É absorvido rapidamente e pouco metabolizado. Tem a mesma aparência do açúcar tradicional.</p>
+    <div class="highlight">1 xícara de açúcar equivale a 1 xícara de eritritol.</div>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 06</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 2 — AÇÚCAR (p3) ═══════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="pg-header"><span class="logo">DulceVaso</span><span class="section-name">Capítulo 2 · continuação</span></div>
+    <h2>Opções naturais</h2>
+    <div class="title-divider"></div>
+
+    <h3>Açúcar de coco</h3>
+    <p>Extraído da seiva do coqueiro. Tem índice glicêmico menor e mais vitaminas e minerais que o açúcar refinado, embora tenha a mesma quantidade de calorias.</p>
+    <div class="highlight">1 xícara de açúcar equivale a 1 xícara de açúcar de coco.</div>
+
+    <h3>Stévia</h3>
+    <p>Adoçante de origem natural, com sabor levemente amargo, mas que pode adoçar 300 vezes mais que o açúcar.</p>
+    <div class="highlight">1 xícara de açúcar equivale a 1 colher de chá de stévia.</div>
+    <div class="note">Em receitas que usam fermento biológico, recomenda-se não usar stévia.</div>
+
+    <h3>Açúcar demerara e mascavo</h3>
+    <p>Ambos são obtidos da cana-de-açúcar e preservam minerais, sendo mais saudáveis que o açúcar branco refinado. O mascavo é mais forte por causa do melado.</p>
+    <div class="highlight">1 xícara de açúcar equivale a 1 xícara de demerara ou mascavo.</div>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 07</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 3 — LEITE (p1) ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/milk.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 3</div>
+      <div class="hero-title">Como substituir o Leite Animal?</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>Outro ingrediente que aparece muito nas receitas é o leite. Ele tem a função de deixar seus bolos e pães mais macios. No entanto, não altera muito o sabor e pode ser substituído facilmente.</p>
+
+    <h3>Leite de amêndoas</h3>
+    <p>Feito com amêndoas inteiras ou a partir de pasta de amêndoa. Sabor levemente doce e textura leve. Use a mesma medida.</p>
+
+    <h3>Leite de coco</h3>
+    <p>Feito com água e a polpa branca do coco maduro. Sabor sutil de coco doce e textura cremosa. Use a mesma medida.</p>
+
+    <h3>Leite de arroz e de aveia</h3>
+    <p>Ambos são excelentes. O de arroz é ideal para intolerâncias e o de aveia tem consistência suave e doçura natural. Use a mesma medida indicada na receita original.</p>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 08</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 3 — LEITE (p2) ═══════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="pg-header"><span class="logo">DulceVaso</span><span class="section-name">Capítulo 3 · continuação</span></div>
+    <h2>Sucos e alternativas caseiras</h2>
+    <div class="title-divider"></div>
+
+    <div class="recipe-box">
+      <h3>🥛 Receita de leite de aveia (rende 750 ml)</h3>
+      <p><strong>Ingredientes:</strong> 1 xícara de aveia em flocos, 500 ml de água filtrada (de molho) e 500 ml de água (para bater).</p>
+      <p><strong>Preparo:</strong> Na noite anterior, deixe os flocos de molho. Após 12 h, escorra e passe por uma peneira. Bata no liquidificador com a água em temperatura ambiente até desmanchar. Coe com um pano fino. Guarde em vidro e leve à geladeira (por até 3 dias).</p>
+    </div>
+
+    <h3>Sucos</h3>
+    <p>Sim! Você pode substituir o leite por suco de frutas. Ele dá maciez e sabor ao bolo. Use um suco de acordo com o sabor da sua receita. Pode ser puro ou diluído com metade de água.</p>
+    <div class="note">Usar suco deixa o bolo mais úmido; pode precisar de mais tempo de forno.</div>
+
+    <h3>Água</h3>
+    <p>Você pode substituir o leite por água, principalmente quando não quer alterar o sabor original. Use a mesma medida.</p>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 09</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 4 — FARINHAS ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/flour.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 4</div>
+      <div class="hero-title">Substituição de Farinhas Brancas</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>Esta substituição é mais complicada. Você precisa entender que substituí-las por outras vai deixar sua receita mais "pesada". A farinha branca passa por um processo de refinamento que retira a casca dos grãos.</p>
+
+    <h3>Farinha de arroz</h3>
+    <p>A mais utilizada na confeitaria sem glúten, pelo preço e pela facilidade. É uma farinha de estrutura. Você pode substituí-la na mesma medida por:</p>
+    <ul>
+      <li>Farinha de arroz integral ou de aveia</li>
+      <li>Farinha de grão-de-bico ou de painço</li>
+    </ul>
+
+    <h3>Amido de milho, polvilho e fécula de batata</h3>
+    <p>Dão liga e leveza às suas massas. Podem ser substituídos entre si na mesma quantidade. Se não quiser usar nenhum deles, experimente:</p>
+    <ul>
+      <li>Farinha ou fécula de araruta, Polvilho (amido de mandioca)</li>
+      <li>Linhaça triturada, Fécula de batata</li>
+    </ul>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 10</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 5 — GOMA XANTANA ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/xanthan.jpg'); background-color:#333;">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 5</div>
+      <div class="hero-title">Como substituir a Goma Xantana?</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>A goma xantana é um polissacarídeo obtido da fermentação de açúcares simples. Sua função principal é dar liga à massa.</p>
+    <p>O potencial dela é enorme, por isso se usa muito pouca quantidade nas receitas. Você precisa ter cuidado com os substitutos, pois eles podem mudar a estrutura e a cor do resultado final do seu preparo.</p>
+
+    <p style="margin-top:20px;">Substitua <strong>1 colher de chá</strong> de goma xantana por:</p>
+    <table>
+      <thead><tr><th>Substituto</th><th>Proporção Recomendada</th></tr></thead>
+      <tbody>
+        <tr><td>Goma guar</td><td>1 colher de chá (mesma medida)</td></tr>
+        <tr><td>CMC</td><td>1 colher de chá (mesma medida)</td></tr>
+        <tr><td>Psyllium</td><td>1 colher de chá para cada 2 colheres de sopa</td></tr>
+      </tbody>
+    </table>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 11</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 6 — OVO (Parte 1) ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/egg.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 6</div>
+      <div class="hero-title">Como substituir o Ovo?</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <h3>Purê de banana</h3>
+    <p>Meia banana bem madura e amassada equivale a 1 ovo para dar umidade às receitas.</p>
+    <div class="note">O sabor pode se destacar — use em receitas de bolos e biscoitos!</div>
+
+    <h3>Chia e linhaça</h3>
+    <p>1 colher de sopa de chia ou linhaça + 3 colheres de sopa de água = 1 ovo. Misture bem e espere uns 20 minutos até formar uma textura de gel.</p>
+
+    <h3>Iogurte e leite coalhado</h3>
+    <p>¼ de xícara de iogurte ou leite coalhado (sem açúcar, sem aromatizantes). Ideal para massas de bolos cremosos.</p>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 12</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 6 — OVO (Parte 2) ═══════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="pg-header"><span class="logo">DulceVaso</span><span class="section-name">Capítulo 6 · continuação</span></div>
+    <h2>Outras alternativas ao ovo</h2>
+    <div class="title-divider"></div>
+
+    <h3>Aquafaba</h3>
+    <p>O líquido espesso que sobra depois de cozinhar leguminosas, como o grão-de-bico.</p>
+    <p><strong>3 colheres de sopa desse líquido</strong> substituem exatamente uma clara de ovo. É excelente para preparar receitas aeradas, como mousses e merengues.</p>
+
+    <h3>Ágar-ágar</h3>
+    <p>É uma gelatina vegetal extraída de algas. Funciona como um agente gelificante muito potente, ideal para dar estrutura a receitas doces.</p>
+    <p><strong>Proporção:</strong> 1 colher de sopa de ágar-ágar em pó misturada em 4 colheres de sopa de água fervente. Leve à geladeira, bata a mistura novamente e está pronto. Essa medida substitui 1 ovo inteiro.</p>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 13</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 7 — MANTEIGA ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/butter.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 7</div>
+      <div class="hero-title">Como substituir a Manteiga?</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>Se você tem problema só com uma delas (manteiga ou margarina), pode substituí-las entre si na mesma medida, sem impacto negativo na receita.</p>
+
+    <h3>Óleos</h3>
+    <p>Óleo de oliva, girassol, coco, milho ou qualquer vegetal. <strong>100 g de manteiga = ½ xícara de óleo.</strong> Para cada colher de sopa (12 g) de margarina, use 1 ½ colher de sopa de óleo.</p>
+
+    <h3>Manteiga Ghee e Vegetal</h3>
+    <p>A Ghee é manteiga clarificada, indicada para intolerantes à lactose. As vegetais são parecidas visualmente. Ambas são usadas na mesma medida que a receita indica.</p>
+
+    <h3>Iogurte natural</h3>
+    <p>Você pode substituir toda a manteiga pela mesma medida de iogurte, ou usar uma mistura de 50% manteiga e 50% iogurte natural.</p>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 14</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 8 — CHOCOLATE ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/chocolate.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 8</div>
+      <div class="hero-title">Substitutos de Chocolate</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>Os chocolates em pó comerciais possuem um teor altíssimo de açúcar e podem até conter glúten ou outros aditivos.</p>
+    <p>Por isso muitas pessoas preferem trocá-los por <strong>cacau em pó puro</strong>.</p>
+
+    <div class="highlight">Recomendamos usar cacau 80% na mesma medida do chocolate em pó que a sua receita pedir. Se preferir um sabor menos intenso, o cacau 50% também funciona perfeitamente.</div>
+
+    <h3>Alfarroba</h3>
+    <p>Ideal para pessoas alérgicas a chocolate: a alfarroba tem um sabor e uma cor que lembram muito o chocolate tradicional, mas com um toque naturalmente adocicado, parecido com mel. A troca é feita na mesma quantidade pedida.</p>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 15</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 9 — FERMENTO ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/yeast.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 9</div>
+      <div class="hero-title">Como substituir o Fermento?</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>Existem vários tipos de fermento: biológico seco, instantâneo, fresco, químico e natural. Cada um tem suas propriedades específicas.</p>
+
+    <table>
+      <thead><tr><th>Tipo de Fermento</th><th>Quantidade / kg de farinha</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td>Biológico fresco</td><td>30 g (2 tabletes)</td><td>Deve ser refrigerado.</td></tr>
+        <tr><td>Biológico seco</td><td>10 g</td><td>Misturar em água morna.</td></tr>
+        <tr><td>Seco instantâneo</td><td>10 g</td><td>Direto na farinha.</td></tr>
+        <tr><td>Natural</td><td>200–300 g</td><td>Cultivado em casa.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Sem fermento? Use bicarbonato</h3>
+    <p><strong>1 colher de sopa de fermento = ½ colher de sopa de bicarbonato + ⅓ colher de sopa de ácido</strong> (vinagre ou suco de limão). Adicione o ácido logo antes de assar.</p>
+    <div class="note">Só funciona para substituir fermento químico (usado em bolos/biscoitos). Não funciona para massas de panificação pesada!</div>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 16</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 10 — CREME DE LEITE ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/cream.jpg');">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 10</div>
+      <div class="hero-title">Substituição de Creme de Leite</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <h3>Iogurte natural ou Cremes vegetais</h3>
+    <p>O iogurte pode substituir o creme em receitas em que ele dá cremosidade. Use a mesma proporção, sem açúcar. Os cremes de leite vegetais também mantêm a mesma proporção 1:1.</p>
+
+    <div class="recipe-box">
+      <h3>🥣 Creme de Leite Vegetal Caseiro</h3>
+      <ul>
+        <li>1 ½ xícara de aveia em flocos finos</li>
+        <li>3 xícaras de água filtrada</li>
+        <li>2 colheres de sopa de óleo vegetal neutro</li>
+        <li>⅛ de colher de chá de sal</li>
+      </ul>
+      <p style="margin-top:12px;"><strong>Preparo:</strong> Deixe a aveia de molho em 1 xícara de água quente por 2 horas. Bata no liquidificador com o resto da água, o óleo e o sal por 3 minutos. Coe com um pano limpo, espremendo bem. Guarde na geladeira em pote fechado por até 5 dias.</p>
+    </div>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 17</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAP 11 — LEITE CONDENSADO ═══════════════════ -->
+<div class="page">
+  <div class="hero-header" style="background-image: url('img/condensed.jpg'); background-color:#333;">
+    <div class="hero-content">
+      <div class="hero-label">Capítulo 11</div>
+      <div class="hero-title">Substituir Leite Condensado?</div>
+    </div>
+  </div>
+  <div class="page-inner no-top-pad">
+    <p>Não existe um ingrediente que se pareça tanto em textura, mas temos estas opções que você pode usar na mesma proporção:</p>
+    <ul>
+      <li>Leite condensado de soja ou light</li>
+      <li>Creme de leite adoçado ou Creme de coco</li>
+    </ul>
+
+    <div class="recipe-box">
+      <h3>🍯 Creme de Leite Adoçado (Caseiro)</h3>
+      <ul>
+        <li>1 ½ copo de leite integral</li>
+        <li>½ xícara de creme de leite e ¾ de xícara de açúcar</li>
+        <li>1 pitada de sal e fava de baunilha (opcional)</li>
+      </ul>
+      <p style="margin-top:12px;"><strong>Preparo:</strong> Cozinhe o leite e o creme em fogo baixo, mexendo sempre, até reduzir pela metade (~30 min). Adicione a baunilha. Tire do fogo, misture o açúcar e o sal até dissolver por completo. Deixe esfriar na geladeira antes de usar, para engrossar.</p>
+    </div>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 18</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CONCLUSÃO ═══════════════════ -->
+<div class="page">
+  <div class="page-inner">
+    <div class="pg-header"><span class="logo">DulceVaso</span><span class="section-name">Conclusão</span></div>
+
+    <div class="conclusion-box">
+      <h2>Conclusão</h2>
+      <p>Espero de verdade que este manual tenha te ajudado, porque parte o meu coração ver as nossas alunas desistindo de receitas por causa de algum ingrediente que não podem consumir.</p>
+      <p>Agora, com essas informações, você pode dar o próximo passo: <strong>fazer suas receitas sem limites!</strong></p>
+      <p style="margin-top:24px;">Não tenha medo de ousar na cozinha. Vá testando e vendo do que você gosta mais. E lembre-se: se precisar de ajuda, é só chamar a gente!</p>
+      <p class="abrazo">Um grande abraço… 💛</p>
+    </div>
+
+    <p style="text-align:center; margin-top:50px; font-size:13px; opacity:.4; letter-spacing:1px; font-weight:500;">
+      DulceVaso © — Todos os direitos reservados.
+    </p>
+
+    <div class="pg-footer"><span>Manual de Substituição de Ingredientes</span><span>Pág. 19</span></div>
+  </div>
+</div>
+
+</body>
+</html>
