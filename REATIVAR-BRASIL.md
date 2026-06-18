@@ -15,10 +15,15 @@
 ---
 
 ## 2. Landing BR (repo `DoceNoCopo` → doce-no-copo.pages.dev)
-- ✅ Já está **no ar e pronta** (preço R$ 37, ROI, depoimentos, marca consistente)
+- 🚨 **OBRIGATÓRIO ANTES DE REATIVAR: remover os depoimentos FALSOS.**
+  A página BR ainda tem 4 prints de WhatsApp fabricados (`depoimento-1..4.jpg`,
+  seção "Quem já está usando"). São conteúdo enganoso — **violam a política do
+  Meta e a lei do consumidor.** Remover a seção `id="depoimentos"` e os arquivos,
+  e substituir por um bloco honesto (ex.: o "Riesgo cero / Garantía" que está no ES).
+- ✅ Resto pronto (preço R$ 37, ROI, marca consistente)
 - Confirmar que o preço da página **bate com a Hotmart** (R$ 37)
 - **Recomendado:** replicar na BR as melhorias que vencerem no teste ES
-  (ex.: prova social no terço superior, imagens otimizadas) — só depois de validadas no ES
+  (ex.: bloco de garantia/risco cedo, imagens otimizadas) — só depois de validadas no ES
 
 ---
 
